@@ -12,8 +12,8 @@
     <artifactId>algo</artifactId>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -21,12 +21,12 @@
         <dependency>
             <groupId>codingblackfemales</groupId>
             <artifactId>dictionary</artifactId>
-            <version>0.01-SNAPSHOT</version>
+            <version>${cbf.exercise.version}</version>
         </dependency>
         <dependency>
             <groupId>codingblackfemales</groupId>
             <artifactId>sequencer</artifactId>
-            <version>0.01-SNAPSHOT</version>
+            <version>${cbf.exercise.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>codingblackfemales</groupId>
             <artifactId>sequencer</artifactId>
-            <version>0.01-SNAPSHOT</version>
+            <version>${cbf.exercise.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
