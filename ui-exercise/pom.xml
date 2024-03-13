@@ -45,6 +45,18 @@
             <version>${cbf.exercise.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.finos.vuu</groupId>
+            <artifactId>vuu</artifactId>
+            <version>${vuu.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.finos.vuu</groupId>
+            <artifactId>vuu-ui</artifactId>
+            <version>${vuu.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
