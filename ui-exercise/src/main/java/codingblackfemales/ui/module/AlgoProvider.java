@@ -62,7 +62,7 @@ public class AlgoProvider extends MarketDataEventListener implements Provider {
 
         instrumentId = bookUpdate.instrumentId();
 
-        empty(bidBook);
+        //empty(bidBook);
 
         for(BookUpdateDecoder.BidBookDecoder decoder : bookUpdate.bidBook()){
             final long price = decoder.price();
@@ -77,7 +77,7 @@ public class AlgoProvider extends MarketDataEventListener implements Provider {
 
         }
 
-        empty(askBook);
+        //empty(askBook);
 
         bookLevel = 0;
 

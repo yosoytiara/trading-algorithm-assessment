@@ -4,6 +4,9 @@ import codingblackfemales.algo.PassiveAlgoLogic;
 import codingblackfemales.container.Actioner;
 import codingblackfemales.container.AlgoContainer;
 import codingblackfemales.container.RunTrigger;
+import codingblackfemales.marketdata.api.MarketDataEncoder;
+import codingblackfemales.marketdata.api.MarketDataMessage;
+import codingblackfemales.marketdata.gen.RandomMarketDataGenerator;
 import codingblackfemales.sequencer.DefaultSequencer;
 import codingblackfemales.sequencer.Sequencer;
 import codingblackfemales.sequencer.consumer.LoggingConsumer;
@@ -38,8 +41,9 @@ public class VuuUiMain {
     private static final MessageHeaderEncoder headerEncoder = new MessageHeaderEncoder();
     private static final BookUpdateEncoder encoder = new BookUpdateEncoder();
 
+    private static final MarketDataEncoder marketDataEncoder = new MarketDataEncoder();
 
-    private static void tick(final Sequencer sequencer){
+    private static void tick(final Sequencer sequencer) {
 
         final ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);
         final UnsafeBuffer directBuffer = new UnsafeBuffer(byteBuffer);
@@ -67,6 +71,13 @@ public class VuuUiMain {
         //send it
         sequencer.onCommand(directBuffer);
     }
+
+    private static void processMarketDataMessage(final Sequencer sequencer, final MarketDataMessage message) {
+        System.out.println(message);
+        final UnsafeBuffer buffer = marketDataEncoder.encode(message);
+        sequencer.onCommand(buffer);
+    }
+
 
     public static void main(String[] args) {
 
@@ -127,6 +138,23 @@ public class VuuUiMain {
         final VuuServer vuuServer = new VuuServer(config, lifecycle, clock, metrics);
 
         lifecycle.start();
+
+        final RandomMarketDataGenerator generator = new RandomMarketDataGenerator(123L, Venue.XLON, 1_000, 100, 15);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!Thread.interrupted()) {
+                    try {
+                        Thread.sleep(300);
+                        final MarketDataMessage update = generator.updateBook();
+                        processMarketDataMessage(sequencer, update);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }).run();
 
         tick(sequencer);
 
