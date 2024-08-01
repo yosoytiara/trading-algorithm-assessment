@@ -146,7 +146,7 @@ public class VuuUiMain {
             public void run() {
                 while (!Thread.interrupted()) {
                     try {
-                        Thread.sleep(300);
+                        Thread.sleep(600);
                         final MarketDataMessage update = generator.updateBook();
                         processMarketDataMessage(sequencer, update);
                     } catch (Exception ex) {
@@ -156,7 +156,7 @@ public class VuuUiMain {
             }
         }).run();
 
-        tick(sequencer);
+        //tick(sequencer);
 
         vuuServer.join();
     }

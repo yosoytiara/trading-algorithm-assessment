@@ -22,13 +22,13 @@ public abstract class MarketDataEventListener implements Consumer {
         final int actingVersion = header.version();
         final int bufferOffset = header.encodedLength();
 
-        if(header.schemaId() == BookUpdateDecoder.SCHEMA_ID){
+        if(header.templateId() == BookUpdateDecoder.TEMPLATE_ID){
             book.wrap(buffer, bufferOffset, actingBlockLength, actingVersion);
             onBookUpdate(book);
-        }else if(header.schemaId() == AskBookUpdateDecoder.SCHEMA_ID){
+        }else if(header.templateId() == AskBookUpdateDecoder.TEMPLATE_ID){
             ask.wrap(buffer, bufferOffset, actingBlockLength, actingVersion);
             onAskBook(ask);
-        }else if(header.schemaId() == BidBookUpdateDecoder.SCHEMA_ID){
+        }else if(header.templateId() == BidBookUpdateDecoder.TEMPLATE_ID){
             bid.wrap(buffer, bufferOffset, actingBlockLength, actingVersion);
             onBidBook(bid);
         }
