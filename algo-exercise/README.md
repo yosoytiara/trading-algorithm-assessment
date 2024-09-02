@@ -60,7 +60,7 @@ https://github.com/cbfacademy/trading-algorithm-assessment/blob/ec5bbff1a3d4ed07
 
 The below diagram shows the message flows across the infrastructure. If you look at the [AbstractAlgoBackTest.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/test/java/codingblackfemales/gettingstarted/AbstractAlgoBackTest.java) you can see how this is wired together for you behind the scenes. 
 
-![cbf-graphics-overview](https://github.com/cbfacademy/trading-algorithm-assessment/assets/17289809/f9a27f2a-5c9b-4b9e-bbea-762a6a144868)
+![cbf-graphics-overview](https://github.com/cbfacademy/trading-algorithm-assessment/blob/bf3d0b48332f5f8faa23f2922d4087e319225bc2/algo-exercise/256759741-f9a27f2a-5c9b-4b9e-bbea-762a6a144868.png)
 
 In the diagram you can see your algo (MyAlgoLogic) in the darker blue box. That is where you add your logic to create or cancel orders. 
 
