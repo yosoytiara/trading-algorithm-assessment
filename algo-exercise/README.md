@@ -42,11 +42,11 @@ You can see from these examples the algo has access to a state object (SimpleAlg
 1. A current view on the market data
 2. The current view of the child orders you've created, and whether they are filled or cancelled etc..
 
-https://github.com/cbfacademy/trading-algorithm-assessment/blob/263cecf4da4a3afa4b94a021f82265f3fcafac08/algo-exercise/algo/src/main/java/codingblackfemales/algo/PassiveAlgoLogic.java#L27-L30
+https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/algo/src/main/java/codingblackfemales/algo/PassiveAlgoLogic.java#L27-L30
 
 You can see in the above code snippet the PassiveAlgoLogic getting access to the market data on the bid side of the book. It then uses that price to place a passive order into the bid side of the order book. 
 
-https://github.com/cbfacademy/trading-algorithm-assessment/blob/263cecf4da4a3afa4b94a021f82265f3fcafac08/algo-exercise/algo/src/main/java/codingblackfemales/algo/PassiveAlgoLogic.java#L33-L36
+https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/algo/src/main/java/codingblackfemales/algo/PassiveAlgoLogic.java#L33-L36
 
 ### An Overview of the Backtesting Infra
 
