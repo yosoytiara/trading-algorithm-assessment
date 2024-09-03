@@ -12,20 +12,20 @@ Note: make sure you think about how the market data could change over time, add 
 
 ### How to Get Started
 
-Pre-requisites: 
+#### Pre-requisites
 
-1. The project requires java version 16 or higher
-2. You should have latest Apache Maven installed or an IDE which has it embedded within it (like IntelliJ)
+1. The project requires Java version 17 or higher
 
-Opening the project: 
+#### Opening the project
 
-1. Git fork this project
-2. Open the project as a maven project in your IDE (normally by opening the top level pom.xml file)
+1. Fork this repo in GitHub and clone it to your local machine
+2. Open the project as a Maven project in your IDE (normally by opening the top level pom.xml file)
 3. Click to expand the "getting-started" module
 4. Navigate to the [MyAlgoTest.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/main/java/codingblackfemales/gettingstarted/MyAlgoLogic.java) and [MyAlgoLogic.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/main/java/codingblackfemales/gettingstarted/MyAlgoLogic.java)
 5. You're ready to go!
 
-** Please note, you will need to run the "mvn compile" task, either at command line or from the IDE integration to make sure the binary encoders and decoders are created. 
+#### Note
+You will need to run the Maven `compile` task to make sure the binary encoders and decoders are created. You can use the provided Maven wrapper or an installed instance of Maven, either in the command line or from the IDE integration. To use the wrapper, run the following command from the project root: `./mvnw compile --projects algo-exercise/getting-started`.
 
 ### Writing Your Algo
 
