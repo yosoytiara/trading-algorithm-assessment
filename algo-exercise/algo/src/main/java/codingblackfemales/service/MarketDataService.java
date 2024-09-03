@@ -63,7 +63,22 @@ public class MarketDataService extends MarketDataEventListener {
 
         instrumentId = bookUpdate.instrumentId();
 
-        //empty(bidBook);
+        empty(bidBook);
+
+        for(BookUpdateDecoder.BidBookDecoder decoder : bookUpdate.bidBook()){
+            final long price = decoder.price();
+            final long quantity = decoder.size();
+            bidBook[bookLevel] = new BidLevel();
+            bidBook[bookLevel].setPrice(price);
+            bidBook[bookLevel].setQuantity(quantity);
+            logger.debug("[ALGO] BID: price:" + price + " quantity:" + quantity);
+
+            bookLevel+= 1;
+            bidLength = bookLevel;
+
+        }
+
+        empty(askBook);
 
         bookLevel = 0;
 
@@ -80,21 +95,6 @@ public class MarketDataService extends MarketDataEventListener {
             bookLevel+= 1;
             askLength = bookLevel;
         }
-
-        for(BookUpdateDecoder.BidBookDecoder decoder : bookUpdate.bidBook()){
-            final long price = decoder.price();
-            final long quantity = decoder.size();
-            bidBook[bookLevel] = new BidLevel();
-            bidBook[bookLevel].setPrice(price);
-            bidBook[bookLevel].setQuantity(quantity);
-            logger.debug("[ALGO] BID: price:" + price + " quantity:" + quantity);
-
-            bookLevel+= 1;
-            bidLength = bookLevel;
-
-        }
-
-        //empty(askBook);
 
         runTrigger.triggerRun();
     }
