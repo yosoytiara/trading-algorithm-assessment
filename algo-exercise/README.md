@@ -56,11 +56,11 @@ When you are writing scenarios to see how the algo would behave you can inject n
 
 There is one example in the test provided already: 
 
-https://github.com/cbfacademy/trading-algorithm-assessment/blob/ec5bbff1a3d4ed07eddaae5a8fcca928ad5c56f4/algo-exercise/getting-started/src/test/java/codingblackfemales/gettingstarted/MyAlgoTest.java#L27-L33
+https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/test/java/codingblackfemales/gettingstarted/MyAlgoTest.java#L27-L33
 
 The below diagram shows the message flows across the infrastructure. If you look at the [AbstractAlgoBackTest.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/test/java/codingblackfemales/gettingstarted/AbstractAlgoBackTest.java) you can see how this is wired together for you behind the scenes. 
 
-![cbf-graphics-overview](https://github.com/cbfacademy/trading-algorithm-assessment/blob/bf3d0b48332f5f8faa23f2922d4087e319225bc2/algo-exercise/256759741-f9a27f2a-5c9b-4b9e-bbea-762a6a144868.png)
+![cbf-graphics-overview](256759741-f9a27f2a-5c9b-4b9e-bbea-762a6a144868.png)
 
 In the diagram you can see your algo (MyAlgoLogic) in the darker blue box. That is where you add your logic to create or cancel orders. 
 
