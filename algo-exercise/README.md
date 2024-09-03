@@ -21,7 +21,7 @@ Note: make sure you think about how the market data could change over time, add 
 1. Fork this repo in GitHub and clone it to your local machine
 2. Open the project as a Maven project in your IDE (normally by opening the top level pom.xml file)
 3. Click to expand the "getting-started" module
-4. Navigate to the [MyAlgoTest.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/main/java/codingblackfemales/gettingstarted/MyAlgoLogic.java) and [MyAlgoLogic.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/main/java/codingblackfemales/gettingstarted/MyAlgoLogic.java)
+4. Navigate to the [MyAlgoTest.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/test/java/codingblackfemales/gettingstarted/MyAlgoTest.java) and [MyAlgoLogic.java](https://github.com/cbfacademy/trading-algorithm-assessment/blob/main/algo-exercise/getting-started/src/main/java/codingblackfemales/gettingstarted/MyAlgoLogic.java)
 5. You're ready to go!
 
 #### Note
