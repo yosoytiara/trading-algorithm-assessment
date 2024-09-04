@@ -25,7 +25,13 @@ Note: make sure you think about how the market data could change over time, add 
 5. You're ready to go!
 
 #### Note
-You will need to run the Maven `compile` task to make sure the binary encoders and decoders are created. You can use the provided Maven wrapper or an installed instance of Maven, either in the command line or from the IDE integration. To use the wrapper, run the following command from the project root: `./mvnw compile --projects algo-exercise/getting-started`.
+You will first need to run the Maven `install` task to make sure the binary encoders and decoders are installed and available for use. You can use the provided Maven wrapper or an installed instance of Maven, either in the command line or from the IDE integration.
+
+To get started, run the following command from the project root: `./mvnw clean install`. Once you've done this, you can compile or test specific projects using the `--projects` flag, e.g.:
+
+- Clean all projects: `./mvnw clean`
+- Test all `algo-exercise` projects: `./mvnw test --projects algo-exercise`
+- Compile the `getting-started` project only: `./mvnw compile --projects algo-exercise/getting-started`
 
 ### Writing Your Algo
 
@@ -80,9 +86,9 @@ Remember your mentors are here to help
 
 ### Frequently Asked Questions
 
-1. I am getting compile errors for the encoders in the project, how do I resolve this?
+1. I am getting compile errors when attempting to compile a project, how do I resolve this?
 
-The encoders and decoders are generated from the .xsd documents in the project. To get them generated, you must run a "mvn compile" step either from inside the IDE or from the command line. 
+The encoders and decoders are generated from the .xsd documents in the project. To get them generated, you must run a `./mvnw install` step either from inside the IDE or from the command line. 
 
 Please see, if you're unsure how to run maven in your setup: 
 * (https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
