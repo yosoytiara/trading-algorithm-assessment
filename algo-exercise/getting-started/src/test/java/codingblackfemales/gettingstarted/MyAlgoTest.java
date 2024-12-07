@@ -32,4 +32,16 @@ public class MyAlgoTest extends AbstractAlgoTest {
         //simple assert to check we had 3 orders created
         //assertEquals(container.getState().getChildOrders().size(), 3);
     }
+     @Test
+    void testEvaluate_DoesNothing_WhenNoValidAskPrice() {
+        // Given: a mock state with no valid ask price
+        when(mockState.getChildOrders()).thenReturn(List.of());  // No child orders
+        when(mockState.getAskAt(0)).thenReturn(null);  // No ask price
+
+        // When: the algorithm evaluates the state
+        Action result = algoLogic.evaluate(mockState);
+
+        // Then: it should take no action
+        assertEquals(NoAction.NoAction, result);
+    }
 }
