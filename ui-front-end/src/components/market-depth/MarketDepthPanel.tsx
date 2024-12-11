@@ -24,14 +24,11 @@ export const MarketDepthPanel = (props: MarketDepthPanelProps) => {
       <tbody>
         {data.map((row, index) => (
           <tr key={index}>
-            <td>
-              <PriceCell price={row.bid} />
-            </td>
+            {/* <td>{row.level}</td> */}
             <td>{row.bidQuantity}</td>
-            <td>
-              <PriceCell price={row.offer} />
-            </td>
-            <td>{row.offerQuantity}</td>
+            <PriceCell price={row.bid} />
+        <PriceCell price={row.offer} /> 
+            <td>{row.offerQuantity}</td> 
           </tr>
         ))}
       </tbody>

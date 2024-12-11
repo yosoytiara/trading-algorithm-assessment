@@ -1,10 +1,13 @@
 .MarketDepthPanel {
   color: rgb(0, 0, 0);
+
 }
 
 th {
   font-weight: bold;
   font-size: 12px;
+  color: rgb(43, 98, 185);
+  text-decoration:underline
 }
 
 td {
