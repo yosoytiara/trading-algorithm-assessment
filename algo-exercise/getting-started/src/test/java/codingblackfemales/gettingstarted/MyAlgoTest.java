@@ -44,4 +44,23 @@ public class MyAlgoTest extends AbstractAlgoTest {
         // Then: it should take no action
         assertEquals(NoAction.NoAction, result);
     }
+    @Test
+     void testEvaluate_CancelsOldestOrder_WhenTooManyChildOrders() {
+        // Given: A mock state with 4 child orders and the max allowed child orders is 3
+        when(mockState.getChildOrders()).thenReturn(List.of(
+            new ChildOrder(100, 5),  // 5 units at price 100
+            new ChildOrder(101, 10), // 10 units at price 101
+            new ChildOrder(102, 8),  // 8 units at price 102
+            new ChildOrder(103, 7)   // 7 units at price 103
+        ));
+        when(mockState.getAskAt(0)).thenReturn(new AskLevel(104, 12));  // New ask price
+
+        // When: The algorithm evaluates the state
+        Action result = algoLogic.evaluate(mockState);
+
+        // Then: It should cancel the oldest order (first one at price 100)
+        assertTrue(result instanceof CancelChildOrder);
+        CancelChildOrder cancelOrder = (CancelChildOrder) result;
+        assertEquals(cancelOrder.getOrder(), mockState.getChildOrders().get(0));  // It should cancel the first order
+    }
 }

@@ -24,18 +24,26 @@ public class MyAlgoLogic implements AlgoLogic {
          *
          */
         // The objective of this challenge is to write a simple trading algo that creates and cancels child orders.
-            AskLevel farTouch = state.getAskAt(0);
-        int currentChildOrders = state.getChildOrders().size();
- logger.info("[MYALGO] Current number of child orders: " + currentChildOrders);
-        if (currentChildOrders < MAX_CHILD_ORDERS) {
-                long quantityToOrder = Math.min(farTouch.quantity, 5);
-                long priceToOrder = farTouch.price;
+
+        AskLevel farTouch = state.getAskAt(0);  // Retrieve the best ask price
+
+        int currentChildOrders = state.getChildOrders().size();//current number of child orders
+
+        logger.info("[MYALGO] Current number of child orders: " + currentChildOrders);
+           // Checks if the number of current child orders is less than 5 allowed 
+            if (currentChildOrders < MAX_CHILD_ORDERS) {
+                long quantityToOrder = Math.min(farTouch.quantity, 5);//minimum between the available ask quantity and 5 units
+
+                   
+
+                long priceToOrder = farTouch.price; // price for the new order to be the price of the lowest ask
                 logger.info("[MYALGO] Creating a new child order: " + quantityToOrder + " units at price " + priceToOrder);
-        return new CreateChildOrder(Side.BUY, quantityToOrder, priceToOrder);
-                } else {
-                      var oldestChildOrder = state.getChildOrders().get(0);
+                    return new CreateChildOrder(Side.BUY, quantityToOrder, priceToOrder); //return a new CreateChildOrder indicating a BUY order with the determined quantity and price
+            } else {
+                     //Retrieve the oldest child order
+                      var oldestChildOrder = state.getChildOrders().get(0);//if enough child orders cancel the oldest order.
                       return new CancelChildOrder(oldestChildOrder);
-                }
+         }
         return NoAction.NoAction;
     }
 }
